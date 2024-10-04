@@ -1,0 +1,83 @@
+.mytaskwindow{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+/* General Table Styling */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Header Styling */
+  .table thead th {
+    background-color: #4a90e2; /* Blue background */
+    color: #ffffff;            /* White text */
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1rem;             /* Increased padding for better visibility */
+    border-bottom: 3px solid #003c71; /* Darker border for the header */
+  }
+  
+  /* Table Body Row Styling */
+  .table tbody tr {
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f7f9fc; /* Light grey color for striped rows */
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e8f4ff; /* Light blue background on hover */
+  }
+  
+  /* Table Cell Styling */
+  .table td, .table th {
+    padding: 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Specific Styling for Action Buttons Column */
+  .table td:last-child {
+    white-space: nowrap; /* Prevent action buttons from wrapping */
+    padding: 0.5rem 1rem; /* Add extra padding for action buttons */
+  }
+  
+  /* Enhanced Borders */
+  .table-bordered {
+    border: 1px solid #003c71;
+  }
+  
+  .table-bordered th, .table-bordered td {
+    border: 1px solid #003c71; /* Darker border for better contrast */
+  }
+  
+  /* Table Footer Styling */
+  .table tfoot td {
+    background-color: #f1f3f5; /* Light grey footer background */
+    color: #333;
+    font-weight: 500;
+    padding: 1rem;
+  }
+  
+  /* Additional Styling for Header and Footer Shadows */
+  .table thead th:first-child {
+    border-top-left-radius: 10px;  /* Rounded top left corner */
+  }
+  
+  .table thead th:last-child {
+    border-top-right-radius: 10px; /* Rounded top right corner */
+  }
+  
+  .table tfoot td:first-child {
+    border-bottom-left-radius: 10px;  /* Rounded bottom left corner */
+  }
+  
+  .table tfoot td:last-child {
+    border-bottom-right-radius: 10px; /* Rounded bottom right corner */
+  }
+  

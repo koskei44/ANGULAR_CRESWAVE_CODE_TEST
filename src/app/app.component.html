@@ -1,0 +1,84 @@
+<div class="container-fluid px-5 mt-4">
+  <div class="d-flex" [ngClass]="{'flex-row': mode !== ModeEnum.NON, 'flex-column': mode === ModeEnum.NON}">
+    <div [ngClass]="{'w-75 me-4': mode !== ModeEnum.NON, 'w-100': mode === ModeEnum.NON}" class="card align-self-center">
+      <h4 class="card-header text-center">Task List</h4>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id.</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (task of tasks; track task) {
+              <tr>
+                <th scope="row">{{ task.id }}</th>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-primary me-1" (click)="editTask(task)">
+                    Edit
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="removeTask(task)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer text-center">
+        <button type="button" class="btn btn-info" (click)="addNewTask()">
+          Add New Task
+        </button>
+      </div>
+    </div>
+
+    @if (mode !== ModeEnum.NON) {
+      <div class="card align-self-center w-25">
+        <h4 class="card-header text-center">Add/Edit Task</h4>
+        <div class="card-body">
+          <form [formGroup]="form">
+            <div class="mb-3 row">
+              <label for="title" class="col-sm-3 col-form-label">Title</label>
+              <div class="col-sm-9">
+                <input type="text" id="title" placeholder="Title" formControlName="title" class="form-control"
+                  [class.is-invalid]="form.controls.title.invalid && form.controls.title.touched" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="description" class="col-sm-3 col-form-label">Description</label>
+              <div class="col-sm-9">
+                <input type="text" id="description" placeholder="Description" formControlName="description" class="form-control"
+                  [class.is-invalid]="form.controls.description.invalid && form.controls.description.touched" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="status" class="col-sm-3 col-form-label">Status</label>
+              <div class="col-sm-9">
+                <input type="text" id="status" placeholder="Status" formControlName="status" class="form-control"
+                  [class.is-invalid]="form.controls.status.invalid && form.controls.status.touched" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+          <button type="button" class="btn btn-sm btn-success me-1" (click)="saveTask()">
+            Submit
+          </button>
+          <button type="button" class="btn btn-sm btn-warning" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+
